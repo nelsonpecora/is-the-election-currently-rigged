@@ -42,11 +42,11 @@
       }
 
       .no .no {
-        display: block !important;
+        display: block;
       }
 
       .yes .no {
-        display: none !important;
+        display: none;
       }
 
       .yes {
@@ -55,11 +55,11 @@
       }
 
       .yes .yes {
-        display: block !important;
+        display: block;
       }
 
       .no .yes {
-        display: none !important;
+        display: none;
       }
     </style>
 </head>
@@ -72,24 +72,35 @@
     <p class="yes">The election is currently rigged.</p>
   </div>
   <div class="info">
-    <!-- embed a new tweet if someone rigs/unrigs the election -->
-    <blockquote class="yes twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Limbaugh: FBI Rekindled Email Investigation Just to Distract Attention From Wikileaks <a href="https://t.co/TaMacPoLO0">https://t.co/TaMacPoLO0</a> (AUDIO) <a href="https://t.co/K3rzSSvDAj">pic.twitter.com/K3rzSSvDAj</a></p>&mdash; Mediaite (@Mediaite) <a href="https://twitter.com/Mediaite/status/792110819114901504">October 28, 2016</a></blockquote>
-    <blockquote class="no twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Don&#39;t let the FBI&#39;s October surprise swing the election <a href="https://t.co/oLLr9S6Juz">https://t.co/oLLr9S6Juz</a> via <a href="https://twitter.com/BV">@BV</a></p>&mdash; Eli Lake (@EliLake) <a href="https://twitter.com/EliLake/status/792125481885675520">October 28, 2016</a></blockquote>
   </div>
-  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <!-- embed a new tweet if someone rigs/unrigs the election -->
+  <template id="yes-tweet">
+    <blockquote class="yes twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Limbaugh: FBI Rekindled Email Investigation Just to Distract Attention From Wikileaks <a href="https://t.co/TaMacPoLO0">https://t.co/TaMacPoLO0</a> (AUDIO) <a href="https://t.co/K3rzSSvDAj">pic.twitter.com/K3rzSSvDAj</a></p>&mdash; Mediaite (@Mediaite) <a href="https://twitter.com/Mediaite/status/792110819114901504">October 28, 2016</a></blockquote>
+  </template>
+  <template id="no-tweet">
+    <blockquote class="no twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Don&#39;t let the FBI&#39;s October surprise swing the election <a href="https://t.co/oLLr9S6Juz">https://t.co/oLLr9S6Juz</a> via <a href="https://twitter.com/BV">@BV</a></p>&mdash; Eli Lake (@EliLake) <a href="https://twitter.com/EliLake/status/792125481885675520">October 28, 2016</a></blockquote>
+  </template>
+
   <script>
     var rig = Math.round(Math.random()), // simple but accurate implementation of first-past-the-post voting
-      bodyPolitic = document.querySelector('body');
+      bodyPolitic = document.querySelector('body'),
+      mainStreamMedia = document.querySelector('.info'),
+      yesTweetTpl = document.querySelector('#yes-tweet'),
+      noTweetTpl = document.querySelector('#no-tweet');
 
     if (rig === 1) {
       // rig the election!
       bodyPolitic.classList.remove('no');
       bodyPolitic.classList.add('yes');
+      mainStreamMedia.appendChild(document.importNode(yesTweetTpl.content, true));
     } else {
       // democracy is fine, don't worry
       bodyPolitic.classList.remove('yes');
       bodyPolitic.classList.add('no');
+      mainStreamMedia.appendChild(document.importNode(noTweetTpl.content, true));
     }
   </script>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
