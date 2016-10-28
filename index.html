@@ -5,7 +5,7 @@
     <title>Is the Election Currently Rigged?</title>
     <style>
       body {
-        display: flex !important;
+        display: flex;
         flex-flow: column wrap;
         justify-content: center;
         align-items: center;
@@ -37,19 +37,33 @@
 
       /* switch these if someone rigs/unrigs the election */
       .no {
-        display: block;
         background-color: #fefefe;
         color: #111;
       }
 
-      .yes {
+      .no .no {
+        display: block;
+      }
+
+      .yes .no {
         display: none;
+      }
+
+      .yes {
         background-color: #111;
         color: #fefefe;
       }
+
+      .yes .yes {
+        display: block;
+      }
+
+      .no .yes {
+        display: none
+      }
     </style>
 </head>
-<body class="no"> <!-- update me if someone rigs/unrigs the election -->
+<body class="yes"> <!-- update me if someone rigs/unrigs the election -->
   <div class="big">
     <h1 class="no">No.</h1>
     <p class="no">The election is not currently rigged.</p>
@@ -58,7 +72,7 @@
     <p class="yes">The election is currently rigged.</p>
   </div>
   <div class="info">
-    <!-- update me if someone rigs/unrigs the election -->
+    <!-- embed a new tweet if someone rigs/unrigs the election -->
     <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Limbaugh: FBI Rekindled Email Investigation Just to Distract Attention From Wikileaks <a href="https://t.co/TaMacPoLO0">https://t.co/TaMacPoLO0</a> (AUDIO) <a href="https://t.co/K3rzSSvDAj">pic.twitter.com/K3rzSSvDAj</a></p>&mdash; Mediaite (@Mediaite) <a href="https://twitter.com/Mediaite/status/792110819114901504">October 28, 2016</a></blockquote>
   </div>
   <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
