@@ -73,8 +73,23 @@
   </div>
   <div class="info">
     <!-- embed a new tweet if someone rigs/unrigs the election -->
-    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Limbaugh: FBI Rekindled Email Investigation Just to Distract Attention From Wikileaks <a href="https://t.co/TaMacPoLO0">https://t.co/TaMacPoLO0</a> (AUDIO) <a href="https://t.co/K3rzSSvDAj">pic.twitter.com/K3rzSSvDAj</a></p>&mdash; Mediaite (@Mediaite) <a href="https://twitter.com/Mediaite/status/792110819114901504">October 28, 2016</a></blockquote>
+    <blockquote class="yes twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Limbaugh: FBI Rekindled Email Investigation Just to Distract Attention From Wikileaks <a href="https://t.co/TaMacPoLO0">https://t.co/TaMacPoLO0</a> (AUDIO) <a href="https://t.co/K3rzSSvDAj">pic.twitter.com/K3rzSSvDAj</a></p>&mdash; Mediaite (@Mediaite) <a href="https://twitter.com/Mediaite/status/792110819114901504">October 28, 2016</a></blockquote>
+    <blockquote class="no twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Don&#39;t let the FBI&#39;s October surprise swing the election <a href="https://t.co/oLLr9S6Juz">https://t.co/oLLr9S6Juz</a> via <a href="https://twitter.com/BV">@BV</a></p>&mdash; Eli Lake (@EliLake) <a href="https://twitter.com/EliLake/status/792125481885675520">October 28, 2016</a></blockquote>
   </div>
   <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script>
+    var rig = Math.round(Math.random()), // simple but accurate implementation of first-past-the-post voting
+      bodyPolitic = document.querySelector('body');
+
+    if (rig === 1) {
+      // rig the election!
+      bodyPolitic.classList.remove('no');
+      bodyPolitic.classList.add('yes');
+    } else {
+      // democracy is fine, don't worry
+      bodyPolitic.classList.remove('yes');
+      bodyPolitic.classList.add('no');
+    }
+  </script>
 </body>
 </html>
